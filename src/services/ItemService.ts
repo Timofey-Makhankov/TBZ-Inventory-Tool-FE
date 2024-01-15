@@ -24,3 +24,5 @@ const itemService = (api: AxiosInstance = apiDefault) => ({
         await api.delete(`/item/${id}`)
     }
 })
+
+export default itemService

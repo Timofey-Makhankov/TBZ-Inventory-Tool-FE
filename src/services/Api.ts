@@ -1,9 +1,9 @@
 import axios, { AxiosError, AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 
-const isDev = (): boolean => !process.env.NODE_ENV || process.env.NODE_ENV === "development";
+const isDev = (): boolean => import.meta.env.DEV
 
 const createAPI = (): AxiosInstance => {
-  return axios.create({ baseURL: process.env.BASE_URL });
+  return axios.create({ baseURL: import.meta.env.VITE_BASE_URL });
 }
 
 const api: AxiosInstance = createAPI();
@@ -12,7 +12,7 @@ export const jwtTokenKey = "token";
 
 api.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
-    const correctPath: boolean = config.url !== "login" && config.url !== "register"
+    const correctPath: boolean = config.url !== "/user/login" && config.url !== "/user/register"
     if (correctPath) {
       config.headers.Authorization = `Bearer ${localStorage.getItem(jwtTokenKey)}`
     }
