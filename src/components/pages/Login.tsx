@@ -5,7 +5,7 @@ import AuthorizationService, { validateToken } from "../../services/Authorisatio
 import { jwtTokenKey } from "../../services/Api";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
-import { Link, redirect } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 import { routes } from "../../router/routes";
 
 const LogInSchema = z.object({
@@ -16,6 +16,7 @@ const LogInSchema = z.object({
 type LoginSchemaType = z.infer<typeof LogInSchema>;
 
 export default function Login() {
+  const nav = useNavigate()
   const { setAuth, setUser } = useContext(AuthContext);
   const { register, handleSubmit, formState: { errors },
   } = useForm<LoginSchemaType>({ resolver: zodResolver(LogInSchema) });
@@ -28,7 +29,7 @@ export default function Login() {
         console.log(user);
         setAuth(true);
         setUser(user);
-        redirect(routes.login);
+        nav(routes.home);
       })
       .catch((error) => {
         console.log(error);

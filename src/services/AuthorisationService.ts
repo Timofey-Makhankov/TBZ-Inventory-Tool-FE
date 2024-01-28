@@ -2,6 +2,7 @@ import { AxiosInstance, AxiosResponse } from "axios"
 import apiDefault, { jwtTokenKey } from "./Api";
 import { User } from "../types/User";
 import * as jose from 'jose'
+import { USER_KEY } from "../context/AuthProvider";
 
 const AuthorizationService = (api: AxiosInstance = apiDefault) => ({
     logIn: async (email: string, password: string): Promise<User> => {
@@ -13,6 +14,10 @@ const AuthorizationService = (api: AxiosInstance = apiDefault) => ({
         const auth: string = response.headers["authorization"]
         localStorage.setItem(jwtTokenKey, auth.split(" ")[1])
         return response.data
+    },
+    logOut:async (): Promise<void> => {
+        localStorage.removeItem(jwtTokenKey)
+        localStorage.removeItem(USER_KEY)
     },
     register:async (email: string, password: string, firstname: string, lastname: string): Promise<User> => {
         const input = {
