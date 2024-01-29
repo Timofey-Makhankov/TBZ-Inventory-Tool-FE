@@ -1,5 +1,9 @@
 # React + TypeScript + Vite
 
+## EXTRA
+
+**AT THIS VERY MOMENT, THE ROUTING IS BUGGED. THE ROUTING HAS TO BE MADE MANUALLY**
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
