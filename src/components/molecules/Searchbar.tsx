@@ -18,7 +18,7 @@ export default function Searchbar({items, onSearch}: {items: Item[], onSearch: (
     return (
         <form className="flex gap-2 grow" onSubmit={handleSubmit(onSubmit)}>
             <input className="border rounded pl-2 min-w-64" type="text" placeholder="Search..." {...register("term")}/>
-            <button type="submit">Search</button>
+            <button className="border rounded bg-blue-500 hover:bg-blue-700 text-white font-bold px-6" type="submit">Search</button>
         </form>
     )
 }
