@@ -16,8 +16,8 @@ export default function Searchbar({items, onSearch}: {items: Item[], onSearch: (
         onSearch(items, data.term)
     }
     return (
-        <form className="flex gap-2" onSubmit={handleSubmit(onSubmit)}>
-            <input className="border rounded pl-2" type="text" placeholder="Search..." {...register("term")}/>
+        <form className="flex gap-2 grow" onSubmit={handleSubmit(onSubmit)}>
+            <input className="border rounded pl-2 min-w-64" type="text" placeholder="Search..." {...register("term")}/>
             <button type="submit">Search</button>
         </form>
     )

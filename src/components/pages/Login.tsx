@@ -5,7 +5,7 @@ import AuthorizationService, { validateToken } from "../../services/Authorisatio
 import { jwtTokenKey } from "../../services/Api";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
-import { Link, redirect, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { routes } from "../../router/routes";
 
 const LogInSchema = z.object({
