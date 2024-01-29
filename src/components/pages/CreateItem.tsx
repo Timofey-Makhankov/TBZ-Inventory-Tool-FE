@@ -40,7 +40,7 @@ export default function CreateItem() {
                     <label htmlFor="quantity"></label>
                     <input className="border rounded" placeholder="count" type="text" {...register("quantity")}/>
                     {errors.quantity && <span>{errors.quantity.message}</span>}
-                    <button className="border rounded" type="submit">Create</button>
+                    <button className="border rounded bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4" type="submit">Create</button>
                 </form>
             </div>
         </div>
